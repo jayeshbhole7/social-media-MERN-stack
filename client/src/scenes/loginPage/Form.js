@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   TextField,
+  Tooltip,
   useMediaQuery,
   Typography,
   useTheme,
@@ -15,7 +16,6 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
-import { AnalyticsSharp } from "@mui/icons-material";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -210,8 +210,8 @@ const Form = () => {
                 </Box>
               </>
             )}
-
-            <TextField
+            <Tooltip title="Enter your best email 📧">
+              <TextField
               label="Email"
               onBlur={handleBlur}
               onChange={handleChange}
@@ -220,7 +220,8 @@ const Form = () => {
               error={Boolean(touched.email) && Boolean(errors.email)}
               helperText={touched.email && errors.email}
               sx={{ gridColumn: "span 4" }}
-            />
+              />
+            </Tooltip>
             <TextField
               label="Password"
               type="password"
@@ -243,8 +244,14 @@ const Form = () => {
                 m: "2rem 0",
                 p: "1rem",
                 backgroundColor: palette.primary.main,
-                color: palette.background.alt,
-                "&:hover": { color: palette.primary.main },
+                color:"FFFFFF",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
+                transition: "background-color 0.3s, transform 0.3s",
+                "&:hover":{
+                  backgroundColor: palette.primary.light,
+                  transform:"scale(1.03)",
+                },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
