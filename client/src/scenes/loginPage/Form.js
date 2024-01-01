@@ -121,6 +121,33 @@ const Form = () => {
         resetForm,
       }) => (
         <form onSubmit={handleSubmit}>
+          <div
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#3498db',
+              color: '#fff',
+              position: 'relative',
+              ...(isRegister && {
+                animation: 'slideIn 1s ease-in-out',
+              }),
+            }}
+          >
+            <h1 style={{ margin: 0 }}>Storibay</h1>
+          </div>
+          <div
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          ></div>
+        {/* <form onSubmit={handleSubmit}> */}
           <Box
             display="grid"
             gap="30px"
